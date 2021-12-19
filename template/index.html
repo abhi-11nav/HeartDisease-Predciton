@@ -1,0 +1,102 @@
+ <!DOCTYPE HTML>
+<html lang='en'>
+
+<head>
+	<meta charset = "UTF=8">
+	<title> HEART DISEASE PREDICTION </title>
+	<style type="text/css">
+		form{
+			margin-left: 600px;	
+		}
+		h1{
+			text-align: center;
+			background-color: lightgray;
+			padding: 0px 20px 0px;
+		}
+		label{
+			padding-bottom: 20px;
+		}
+		.features{
+			padding-bottom: 20px;
+			margin-bottom: 20px;
+		}
+
+		button{
+			padding: 10px;
+			font-size: 15px;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div class="login">
+		<h1> HEART DISEASE PREDICTION MODEL </h1>
+		<form action="{{ url_for('predict')}}"method="post">
+    		<input class="features" type="number" name="Age" placeholder="Age" required="required"/><br>
+        	<input class="features" type="number" name="RestingBP" placeholder="RestingBP" required="required"/><br>
+			<input class="features" type="number" name="Cholesterol" placeholder="Cholesterol" required="required"/><br>
+			<input class="features" type="number" name="MaxHR" placeholder="MaxHR" required="required"/><br>
+			<input class="features" type="number" inputmode="decimal" name="Oldpeak_reciprocal" placeholder="Oldpeak_reciprocal" required="required"/><br>
+
+			<label for="ChestPainType">ChestPain Type</label>
+			<select class="features" name="ChestPainType" id="ChestPainType" required="required">
+			<option value="TA">TA</option>
+			<option value="NAP">NAP</option>
+			<option value="ATA">ATA</option>
+			<option value="ASY">ASY</option>
+			</select>
+			<br>
+
+			<label for="RestingECG">Resting ECG</label>
+			<select class="features" name="RestingECG" id="RestingECG" required="required">
+			<option value="Normal">Normal</option>
+			<option value="LVH">LVH</option>
+			<option value="ST">ST</option>
+			</select>
+			<br>
+
+			<label for="ST_Slope">ST_Slope</label>
+			<select class="features" name="ST_Slope" id="ST_Slope" required="required">
+			<option value="Flat">Flat</option>
+			<option value="Up">Up</option>
+			<option value="Down">Down</option>
+			</select>
+			<br>
+
+			<label for="ExcerciseAngina">Excercise Angina</label>
+			<select class="features" name="ExcerciseAngina" id="ExcerciseAngina" required="required">
+			<option value="Yes">Yes</option>
+			<option value="No">No</option>
+			</select>
+			<br>
+
+			<label for="FastingBS">FastingBS</label>
+			<select class="features" name="FastingBS" id="FastingBS" required="required">
+			<option value="Yes">Yes</option>
+			<option value="No">No</option>
+			</select>
+			<br>
+
+			<label for="Sex">Sex</label>
+			<select class="features" name="Sex" id="Sex" required="required">
+			<option value="Male">Male</option>
+			<option value="Female">Female</option>
+			</select>
+			<br>
+
+        	<button type="SUBMIT" class="btn btn-primary btn-block btn-large">predict</button>
+    	</form>
+
+  		 <br>
+   		<br>
+   		
+   		<div id="prediction_text">
+   		{{ prediction_text }}
+   		</div>
+
+ 	</div>
+
+</body>
+</html> 
+</body>
